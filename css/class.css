@@ -1,0 +1,31 @@
+.mWrapper {
+	margin-bottom: 50px;
+	box-shadow: 0 4px 4px -2px #ddd;
+  	width: 100%;
+  	background-color: white;
+  	z-index: 5000;
+}
+.logo {
+	padding: 0;
+}
+.mainMenu {
+
+}
+.mainMenu ul {
+	float: right;
+	padding-left: 0;
+	margin-bottom: 0;
+}
+.mainMenu li {
+	list-style-type: none;
+	display: inline-block;
+}
+.mainMenu li a {
+	display: block;
+	text-transform: uppercase;
+	padding: 20px;
+}
+.mainMenu li a:hover {
+	background-color: #00ACE9;
+	color: whitesmoke;
+}
