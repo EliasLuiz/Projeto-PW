@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript">
+    function validaCampo()
+    {
+   if(document.cadastro.telefone.value=="")
+    {
+    alert("O Campo Telefone é obrigatório!");
+    return false;
+    }
+    else
+    return true;
+    }
+    
+    <!-- Fim do JavaScript que validará os campos obrigatórios! -->
+    </script>
+     	 <title> Cadastro Telefone </title>
+         
+</head>
+<body  topmargin="0" leftmargin="0">
+    <table width="100%" height="100%"><tr><td align="center" valign="middle">
+
+    <table cellpadding="1" cellspacing="1"><tr><td>
+      <tr>
+        <td>
+            <center><h2>Cadastro de Telefone</h2><br>
+            <hr>
+        </td>
+      </tr>
+      <tr>
+          <td align="left">
+    <form id="cadastro" name="cadastro" method="post" onsubmit="return validaCampo(); return false;" >
+      <table width="625" border="0">
+        <tr>
+          <td>DDD:</td>
+          <td><input name="ddd" type="text" id="ddd" size="4" maxlength="2" />
+          Telefone:
+            <input name="telefone" type="text" id="telefone" maxlength="9"/>
+            <span>Apenas números</span> </td>
+        </tr>
+        
+        
+        <tr>
+          <td colspan="2"><p>
+            <input name="cadastrar" type="submit" id="cadastrar" value="Concluir meu Cadastro!"/>
+           
+     
+              <input name="limpar" type="reset" id="limpar" value="Limpar Campos preenchidos!" />
+             
+     
+       
+          <p>  </p></td>
+        </tr>
+          </td></tr></table>
+        
+        </td></tr></table>
+    </form>
+    </body>
+</html>
+
