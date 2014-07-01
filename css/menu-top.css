@@ -7,7 +7,39 @@ and open the template in the editor.
     Created on : Jun 30, 2014, 1:33:43 PM
     Author     : Elias
 */
-
+.preto{
+    border-color: #000000;
+    border-style: solid;
+}
+@media(max-width: 480px) {
+    .centro{
+    }
+    .logo{
+        margin-top: 30px;
+    }
+}
+@media(min-width: 481px) and (max-width: 767px) {
+    .centro{
+    }
+    .logo{
+        margin-top: 25px;
+    }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+    .centro{
+        margin-left: 55px;
+    }
+    .logo{
+        margin-top: 8px;
+    }
+}
+@media (min-width: 993px) {
+    .centro{
+        margin-top: 20px;
+        margin-left: 20px;
+        
+    }
+}
 .mWrapper {
 	margin-bottom: 50px;
 	box-shadow: 0 4px 4px -2px #ddd;
@@ -21,4 +53,20 @@ and open the template in the editor.
 .mainMenu li a {
         padding: 5px;
         font-size: 8px;
+}
+#biocesplogo{
+    height: 50px;
+    width: 130px;
+}
+#mainmenu{
+    white-space: nowrap;
+    overflow: hidden;
+}
+#mainmenu li{
+    display: inline;
+}
+a:hover{
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #000000;
 }
