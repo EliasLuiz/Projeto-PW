@@ -3,6 +3,7 @@
     require "html/header.html" ;
     require "html/menu-top.html" ;
 ?>
+<link href="css/home.css" rel="stylesheet">
 <div id="templatemo_portfolio" class="section2">
       <div class="container">
         <div class="row">
@@ -71,6 +72,7 @@
         </div>
       </div>
     </div> <!-- e/o section2 -->
+</div>
 <?php
     require "html/rodape.html";
 ?>
