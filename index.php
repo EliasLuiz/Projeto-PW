@@ -1,7 +1,7 @@
 <?php
-    require "html/includes-basicos.html" ;
-    require "html/header.html" ;
-    require "html/menu-top.html" ;
+    include "html/includes-basicos.html" ;
+    include "html/header.html" ;
+    include "html/menu-top.html" ;
 ?>
 <link href="css/home.css" rel="stylesheet">
 <div id="templatemo_portfolio" class="section2">
@@ -74,5 +74,5 @@
     </div> <!-- e/o section2 -->
 </div>
 <?php
-    require "html/rodape.html";
+    include "html/rodape.html";
 ?>
