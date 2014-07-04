@@ -47,7 +47,7 @@ class Exame {
     }
     
     //Métodos de Banco de Dados
-    public function carregaMySQL($login, $senha){
+    public function carregaMySQL($cdExame){
         
         //Estabelece conexão
         $con = mysql_connect("localhost:3306","root","");
@@ -57,8 +57,7 @@ class Exame {
         mysql_select_db("mydb", $con);
         
         //Gera SQL e busca Exame no banco, carregando se não houver erro
-        $sql = "SELECT * FROM TB_TipoExame t WHERE t.login = '" . $login .
-               "' and t.senha = '" . $senha . "'";
+        $sql = "SELECT * FROM TB_TipoExame t WHERE t.cdExame = '" . $cdExame . "'";
         $result = mysql_query($sql, $con);
         if($result){
             $result = mysql_fetch_array($result);
@@ -84,8 +83,7 @@ class Exame {
         mysql_select_db("mydb", $con);
         
         //Gera SQL para salvar/atualizar Exame no banco
-        $sql = "SELECT * FROM TB_TipoExame t WHERE t.login = '" . $login .
-               "' and t.senha = '" . $senha . "'";
+        $sql = "SELECT * FROM TB_TipoExame t WHERE t.cdExame = '" . $cdExame . "'";
         $result = mysql_query($sql, $con);
         if($result){
             $result = mysql_fetch_array($result);
