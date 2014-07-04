@@ -23,13 +23,73 @@ class Medico extends Pessoa{
     }
     
     //Métodos de Banco de Dados
-    public function carregaPessoaMySQL($login, $senha){
-        parent::carregaPessoaMySQL($login, $senha);
-        //sql code here
+    public function carregaMySQL($login, $senha){
+        
+        //Busca a parte de Medico que pertence a Pessoa no Banco
+        parent::carregaMySQL($login, $senha);
+        
+        //Estabelece conexão
+        $con = mysql_connect("localhost:3306","root","");
+        if(!$con){
+            die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
+        }
+        mysql_select_db("mydb", $con);
+        
+        //Gera SQL e busca Medico no banco, carregando se não houver erro
+        $sql = "SELECT * FROM TB_Pessoa p, TB_Medico m WHERE p.login = '" . $login .
+               "' and p.senha = '" . $senha . "' and p.cdPessoa = m.cdPessoa";
+        $result = mysql_query($sql, $con);
+        if($result){
+            $result = mysql_fetch_array($result);
+            $this->crm = $result['crm'];
+        }
+        else{
+            die('Não foi possível carregar medico do banco de dados: '.mysql_error());
+        }
+        
+        mysql_close($con);
     }
-    public function salvaPessoaMySQL(){
-        parent::salvaPessoaMySQL();
-        //sql code here
+    public function salvaMySQL(){
+        
+        //Salva a parte de Medico que pertence a Pessoa no banco
+        parent::salvaMySQL();
+        
+        //Estabelece conexão
+        $con = mysql_connect("localhost:3306","root","");
+        if(!$con){
+            die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
+        }
+        mysql_select_db("mydb", $con);
+        
+        //Gera SQL para salvar/atualizar Medico no banco
+        $sql = "SELECT * FROM TB_Pessoa p, TB_Medico m WHERE p.login = '" . $this->login .
+               "' and p.senha = '" . $this->senha . "' and p.cdPessoa = m.cdPessoa";
+        $result = mysql_query($sql, $con);
+        if($result){
+            $result = mysql_fetch_array($result);
+            $sql = "UPDATE TB_Medico SET crm = '" . $this->crm .
+                   "' WHERE cdPessoa = " . $result['cdPessoa'];
+        }
+        else{
+            $sql = "SELECT * FROM TB_Pessoa p WHERE p.login = '" . $this->login .
+               "' and p.senha = '" . $this->senha . "'";
+            $result = mysql_query($sql, $con);
+            
+            if(!$result){
+                die('Não foi possível carregar pessoa do banco de dados: '.mysql_error());
+            }
+            
+            $sql = "INSERT INTO TB_Medico(cdPessoa, crm) VALUES (" .
+                   $result['cdPessoa'] . ",'" . $this->crm . "')";
+        }
+        
+        //Executa SQL e testa sucesso
+        $result = mysql_query($sql, $con);
+        if(!$result){
+            die('Não foi possível salvar medico no banco de dados: '.mysql_error());
+        }
+        
+        mysql_close($con);
     }
 }
 
