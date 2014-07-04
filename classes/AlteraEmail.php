@@ -19,7 +19,7 @@ class AlteraEmail {
     }
     
     //Métodos de Banco de Dados
-    public function salvaMySQL(){
+    public function salvaMySQL($login, $senha){
         //Estabelece conexão
         $con = mysql_connect("localhost:3306","root","");
         if(!$con){
