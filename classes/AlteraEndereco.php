@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Description of Cliente
+ * Description of AlteraEndereco
  *
- * @author Elias
+ * @author Daniel
  */
 
 include_once 'Pessoa.php';
 
-class Cliente extends Pessoa {
+class AlteraEndereco extends Pessoa {
     
     protected $rua;
     protected $numeroEnd;
@@ -35,12 +35,7 @@ class Cliente extends Pessoa {
     }
 
         //Métodos de Banco de Dados
-    
-    }
     public function salvaMySQL($login, $senha){
-        
-        //Salva a parte de Cliente que pertence a Pessoa no banco
-        parent::salvaMySQL();
         
         //Estabelece conexão
         $con = mysql_connect("localhost:3306","root","");
