@@ -15,11 +15,6 @@ class Cliente extends Pessoa {
     protected $complementoEnd;
     protected $medicamentos;
 
-
-
-
-
-
     //Set's e Get's
     public function setRua($r){
         $this->rua = $r;

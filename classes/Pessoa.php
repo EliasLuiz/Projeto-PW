@@ -17,8 +17,6 @@ class Pessoa {
     protected $telefone;
     protected $email;
     
-    
-    
     //Set's e Get's
     public function setNome($n){
         $this->nome = $n;    

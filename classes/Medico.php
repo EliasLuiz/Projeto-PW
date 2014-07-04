@@ -12,8 +12,6 @@ class Medico extends Pessoa{
     
     protected $crm;
     
-    
-    
     //Set's e Get's
     public function setCrm($c){
         $this->crm = $c;

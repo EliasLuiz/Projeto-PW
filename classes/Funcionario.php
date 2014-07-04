@@ -13,8 +13,6 @@ class Funcionario extends Pessoa{
     protected $registroFuncional;
     protected $cargo;
     
-    
-    
     //Set's e Get's
     public function setRegistroFuncional($r){
         $this->registroFuncional = $r;

@@ -6,7 +6,7 @@
  * @author Daniel gatim
  */
 
-class Exame {
+class TipoExame {
     
     protected $nome;
     protected $coletadomicilio;
@@ -16,7 +16,7 @@ class Exame {
     
     //Set's e Get's
     public function setNome($n){
-        $this->nome = $n;    
+        $this->nome = $n;
     }
     public function getNome(){
         return $this->nome;
