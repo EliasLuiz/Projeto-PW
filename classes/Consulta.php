@@ -42,7 +42,7 @@ class Consulta {
         
         mysql_close($con);
     }
-    public function salvaMySQL(){
+    public function salvaMySQL($cdConsulta){
         //Estabelece conexão
         $con = mysql_connect("localhost:3306","root","");
         if(!$con){
@@ -58,9 +58,7 @@ class Consulta {
             $sql = "UPDATE TB_Consulta c SET c.dtConsulta = '" . $this->dtConsulta . "'";
         }
         else{
-            $sql = "INSERT INTO TB_Consulta(cdConsulta,cdCliente,cdMedico,dtConsulta)" . 
-                   " VALUES ('','" .
-                   $result['cdCliente'] . ",'" . $result['cdMedico'] . ",'" . $this->dtConsulta . "')";
+            //DUVIDA??????
         }
         
         //Executa SQL e testa sucesso
