@@ -21,6 +21,9 @@ class Convenio {
     public function setResponsavel($r){
         $this->responsavel = $r;
     }
+    public function getResponsavel(){
+        return $this->responsavel;
+    }
     
     //Métodos de Banco de Dados
     public function carregaMySQL($cdConvenio){
