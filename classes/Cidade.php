@@ -28,7 +28,7 @@ class Cidade {
         }
         mysql_select_db("mydb", $con);
         
-        //Gera SQL e busca Hospital no banco, carregando se não houver erro
+        //Gera SQL e busca Cidade no banco, carregando se não houver erro
         $sql = "SELECT * FROM TB_Cidade c WHERE c.cdCidade = '" . $cdCidade . "'";
         $result = mysql_query($sql, $con);
         if($result){
@@ -50,8 +50,8 @@ class Cidade {
         }
         mysql_select_db("mydb", $con);
         
-        //Gera SQL para salvar/atualizar Hospital no banco
-        $sql = "SELECT * FROM TB_Cidade c WHERE c.cdCidade = '" . $cdCidade . "'";
+        //Gera SQL para salvar/atualizar Cidade no banco
+        $sql = "SELECT * FROM TB_Cidade c WHERE c.nmCidade = '" . $this->nome . "'";
         $result = mysql_query($sql, $con);
         if($result){
             $result = mysql_fetch_array($result);
@@ -59,8 +59,7 @@ class Cidade {
                    $result['cdCidade'];
         }
         else{
-            $sql = "INSERT INTO TB_ClinicaHospital(cdClinicaHospital,nmClinicaHospital,telefone)" . 
-                   " VALUES ('','" . $this->nmhospital . "','" . $this->telefone . "')";
+            $sql = "INSERT INTO TB_Cidade(cdCidade,nmCidade)" . " VALUES ('','" . $this->nome . "')";
         }
         
         //Executa SQL e testa sucesso
