@@ -7,6 +7,7 @@
  */
 
 include_once 'Pessoa.php';
+include_once 'Bairro.php';
 
 class Cliente extends Pessoa {
     
@@ -14,6 +15,12 @@ class Cliente extends Pessoa {
     protected $numeroEnd;
     protected $complementoEnd;
     protected $medicamentos;
+    protected $bairro;
+    
+    //Construtor
+    function __construct() {
+        $this->bairro = new Bairro();
+    }
 
     //Set's e Get's
     public function setRua($r){
@@ -40,6 +47,12 @@ class Cliente extends Pessoa {
     public function getMedicamentos(){
         return $this->medicamentos;
     }
+    public function setBairro($b){
+        $this->bairro = $b;
+    }
+    public function getBairro(){
+        return $this->bairro;
+    }
 
         //Métodos de Banco de Dados
     public function carregaMySQL($login, $senha){
@@ -64,6 +77,7 @@ class Cliente extends Pessoa {
             $this->numeroEnd = $result['numeroEnd'];
             $this->complementoEnd = $result['complementoEnd'];
             $this->medicamentos = $result['medicamentos'];
+            $this->bairro->carregaMySQL($result['cdBairro']);
         }
         else{
             die('Não foi possível carregar cliente do banco de dados: '.mysql_error());
@@ -95,17 +109,18 @@ class Cliente extends Pessoa {
                    "' WHERE cdPessoa = " . $result['cdPessoa'];
         }
         else{
-            $sql = "SELECT * FROM TB_Pessoa p WHERE p.login = '" . $this->login .
-               "' and p.senha = '" . $this->senha . "'";
+            //Busca chave de pessoa e de bairro para inserir em cliente
+            $sql = "SELECT * FROM TB_Pessoa p, TB_Bairro b WHERE p.login = '" . $this->login .
+               "' and p.senha = '" . $this->senha . "' and b.cdBairro = " . $this->bairro->getCdBairro();
             $result = mysql_query($sql, $con);
             
             if(!$result){
                 die('Não foi possível carregar pessoa do banco de dados: '.mysql_error());
             }
             
-            $sql = "INSERT INTO TB_Cliente(cdPessoa, rua, numeroEnd, complementoEnd, medicamentos) VALUES (" .
-                   $result['cdPessoa'] . ",'" . $this->rua . "','" . $this->numeroEnd .
-                   "','" . $this->complementoEnd . "','" . $this->medicamentos . "')";
+            $sql = "INSERT INTO TB_Cliente(cdPessoa, cdBairro, rua, numeroEnd, complementoEnd, medicamentos) "
+                   . "VALUES (" . $result['cdPessoa'] . ",". $result['cdBairro'] . ",'" . $this->rua . "','" .
+                   $this->numeroEnd . "','" . $this->complementoEnd . "','" . $this->medicamentos . "')";
         }
         
         //Executa SQL e testa sucesso

@@ -95,5 +95,21 @@ class Bairro {
         
         mysql_close($con);
     }
-    
+    public function getCdBairro(){
+        
+        //Estabelece conexão
+        $con = mysql_connect("localhost:3306","root","");
+        if(!$con){
+            die('Não foi possível estabelecer conexão com o banco de dados: '.mysql_error());
+        }
+        mysql_select_db("mydb", $con);
+        
+        $sql = "SELECT * FROM TB_Bairro b, TB_Cidade c WHERE b.nmBairro = '" . $this->nome . "' and "
+               . "b.cdCidade = c.cdCidade and c.nmCidade = '" . $this->cidade->getNome() . "'";
+        $result = mysql_query($sql, $con);
+        if(!$result){
+            die('Não foi possível carregar bairro do banco de dados: '.mysql_error());
+        }
+        return $result['cdBairro'];
+    }
 }
