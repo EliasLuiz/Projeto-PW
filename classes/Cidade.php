@@ -1,32 +1,25 @@
 <?php
 
 /**
- * Description of Hospital
+ * Classe para manipulação de TB_Cidade
  *
- * @author Daniel gatim
+ * @author Elias
  */
 
-class Hospital {
+class Cidade {
     
-    protected $nmhospital;
-    protected $telefone;
+    protected $nome;
     
     //Set's e Get's
-    public function setNmHospital($n){
-        $this->nmhospital = $n;    
+    public function setNome($n){
+        $this->nome = $n;
     }
-    public function getNmHospital(){
-        return $this->nmhospital;
-    }
-    public function setTelefone($t){
-        $this->telefone = $t;
-    }
-    public function getTelefone(){
-        return $this->telefone;
+    public function getNome(){
+        return $this->nome;
     }
     
-    //Métodos de Banco de Dados
-    public function carregaMySQL($cdClinicaHospital){
+    //Metodos de Banco de Dados
+    public function carregaMySQL($cdCidade){
         
         //Estabelece conexão
         $con = mysql_connect("localhost:3306","root","");
@@ -36,16 +29,15 @@ class Hospital {
         mysql_select_db("mydb", $con);
         
         //Gera SQL e busca Hospital no banco, carregando se não houver erro
-        $sql = "SELECT * FROM TB_ClinicaHospital c WHERE c.cdClinicaHospital = '" . $cdClinicaHospital . "'";
+        $sql = "SELECT * FROM TB_Cidade c WHERE c.cdCidade = '" . $cdCidade . "'";
         $result = mysql_query($sql, $con);
         if($result){
             $result = mysql_fetch_array($result);
             
-            $this->nmhospital = $result['nmClinicaHospital'];
-            $this->telefone = $result['telefone'];
+            $this->nome = $result['nmCidade'];
         }
         else{
-            die('Não foi possível carregar hospital do banco de dados: '.mysql_error());
+            die('Não foi possível carregar cidade do banco de dados: '.mysql_error());
         }
         
         mysql_close($con);
@@ -59,13 +51,12 @@ class Hospital {
         mysql_select_db("mydb", $con);
         
         //Gera SQL para salvar/atualizar Hospital no banco
-        $sql = "SELECT * FROM TB_ClinicaHospital c WHERE c.cdClinicaHospital = '" . $cdClinicaHospital . "'";
+        $sql = "SELECT * FROM TB_Cidade c WHERE c.cdCidade = '" . $cdCidade . "'";
         $result = mysql_query($sql, $con);
         if($result){
             $result = mysql_fetch_array($result);
-            $sql = "UPDATE TB_ClinicaHospital c SET c.nmClinicaHospital = '" . $this->nmhospital .
-                   "', c.telefone = '" . $this->telefone . "' WHERE c.cdClinicaHospital = " .
-                   $result['cdClinicaHospital'];
+            $sql = "UPDATE TB_Cidade c SET c.nmCidade = '" . $this->nome . "' WHERE cdCidade = " .
+                   $result['cdCidade'];
         }
         else{
             $sql = "INSERT INTO TB_ClinicaHospital(cdClinicaHospital,nmClinicaHospital,telefone)" . 
@@ -75,11 +66,9 @@ class Hospital {
         //Executa SQL e testa sucesso
         $result = mysql_query($sql, $con);
         if(!$result){
-            die('Não foi possível salvar pessoa no banco de dados: '.mysql_error());
+            die('Não foi possível salvar cidade no banco de dados: '.mysql_error());
         }
         
         mysql_close($con);
     }
 }
-
-?>
