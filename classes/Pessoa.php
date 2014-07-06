@@ -68,7 +68,7 @@ class Pessoa {
     }
     
     //Métodos de Banco de Dados
-    public function carregaMySQL($login, $senha){
+    public function carregaMySQL($cdPessoa){
         
         //Estabelece conexão
         $con = mysql_connect("localhost:3306","root","");
@@ -78,8 +78,7 @@ class Pessoa {
         mysql_select_db("mydb", $con);
         
         //Gera SQL e busca Pessoa no banco, carregando se não houver erro
-        $sql = "SELECT * FROM TB_Pessoa p WHERE p.login = '" . $login .
-               "' and p.senha = '" . $senha . "'";
+        $sql = "SELECT * FROM TB_Pessoa p WHERE p.cdPessoa = " . $cdPessoa;
         $result = mysql_query($sql, $con);
         if($result){
             $result = mysql_fetch_array($result);

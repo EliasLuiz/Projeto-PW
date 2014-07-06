@@ -21,10 +21,10 @@ class Medico extends Pessoa{
     }
     
     //Métodos de Banco de Dados
-    public function carregaMySQL($login, $senha){
+    public function carregaMySQL($cdMedico){
         
         //Busca a parte de Medico que pertence a Pessoa no Banco
-        parent::carregaMySQL($login, $senha);
+        parent::carregaMySQL($cdMedico);
         
         //Estabelece conexão
         $con = mysql_connect("localhost:3306","root","");
@@ -34,8 +34,7 @@ class Medico extends Pessoa{
         mysql_select_db("mydb", $con);
         
         //Gera SQL e busca Medico no banco, carregando se não houver erro
-        $sql = "SELECT * FROM TB_Pessoa p, TB_Medico m WHERE p.login = '" . $login .
-               "' and p.senha = '" . $senha . "' and p.cdPessoa = m.cdPessoa";
+        $sql = "SELECT * TB_Medico WHERE cdPessoa = " . $cdMedico;
         $result = mysql_query($sql, $con);
         if($result){
             $result = mysql_fetch_array($result);

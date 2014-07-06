@@ -83,6 +83,7 @@ class Bairro {
                 die('Não foi possível carregar cidade do banco de dados: '.mysql_error());
             }
             
+            $result = mysql_fetch_array($result);
             $sql = "INSERT INTO TB_Bairro(cdBairro,nmBairro,cdCidade)" . 
                    " VALUES ('','" . $this->nome . "','" . $result['cdCidade'] . "')";
         }
@@ -110,6 +111,7 @@ class Bairro {
         if(!$result){
             die('Não foi possível carregar bairro do banco de dados: '.mysql_error());
         }
+        $result = mysql_fetch_array($result);
         return $result['cdBairro'];
     }
 }

@@ -55,10 +55,10 @@ class Cliente extends Pessoa {
     }
 
         //Métodos de Banco de Dados
-    public function carregaMySQL($login, $senha){
+    public function carregaMySQL($cdCliente){
         
         //Busca a parte de Cliente que pertence a Pessoa no Banco
-        parent::carregaMySQL($login, $senha);
+        parent::carregaMySQL($cdCliente);
         
         //Estabelece conexão
         $con = mysql_connect("localhost:3306","root","");
@@ -68,8 +68,7 @@ class Cliente extends Pessoa {
         mysql_select_db("mydb", $con);
         
         //Gera SQL e busca Cliente no banco, carregando se não houver erro
-        $sql = "SELECT * FROM TB_Pessoa p, TB_Cliente c WHERE p.login = '" . $login .
-               "' and p.senha = '" . $senha . "' and p.cdPessoa = c.cdPessoa";
+        $sql = "SELECT * FROM TB_Cliente WHERE cdPessoa = " . $cdCliente;
         $result = mysql_query($sql, $con);
         if($result){
             $result = mysql_fetch_array($result);
@@ -118,6 +117,7 @@ class Cliente extends Pessoa {
                 die('Não foi possível carregar pessoa do banco de dados: '.mysql_error());
             }
             
+            $result = mysql_fetch_array($result);
             $sql = "INSERT INTO TB_Cliente(cdPessoa, cdBairro, rua, numeroEnd, complementoEnd, medicamentos) "
                    . "VALUES (" . $result['cdPessoa'] . ",". $result['cdBairro'] . ",'" . $this->rua . "','" .
                    $this->numeroEnd . "','" . $this->complementoEnd . "','" . $this->medicamentos . "')";

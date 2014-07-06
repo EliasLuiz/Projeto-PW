@@ -28,10 +28,10 @@ class Funcionario extends Pessoa{
     }
     
     //Métodos de Banco de Dados
-    public function carregaMySQL($login, $senha){
+    public function carregaMySQL($cdFuncionario){
         
         //Busca a parte de Funcionario que pertence a Pessoa no Banco
-        parent::carregaMySQL($login, $senha);
+        parent::carregaMySQL($cdFuncionario);
         
         //Estabelece conexão
         $con = mysql_connect("localhost:3306","root","");
@@ -41,8 +41,7 @@ class Funcionario extends Pessoa{
         mysql_select_db("mydb", $con);
         
         //Gera SQL e busca Funcionario no banco, carregando se não houver erro
-        $sql = "SELECT * FROM TB_Pessoa p, TB_Funcionario f WHERE p.login = '" . $login .
-               "' and p.senha = '" . $senha . "' and p.cdPessoa = f.cdPessoa";
+        $sql = "SELECT * FROM TB_Funcionario f WHERE f.cdPessoa = " . $cdFuncionario;
         $result = mysql_query($sql, $con);
         if($result){
             $result = mysql_fetch_array($result);
