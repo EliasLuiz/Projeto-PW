@@ -1,5 +1,5 @@
 <?php
 
-    require_once 'cadastros/configuracoes/alteratelefone.html';
+    require_once 'html/cadastros/configuracoes/alteratelefone.html';
 
 ?>

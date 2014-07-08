@@ -1,5 +1,5 @@
 <?php
 
-    require_once 'cadastros/configuracoes/alteraendereco.html';
+    require_once 'html/cadastros/configuracoes/alteraendereco.html';
 
 ?>

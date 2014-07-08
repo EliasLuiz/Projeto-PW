@@ -1,5 +1,5 @@
 <?php
 
-    require_once 'cadastros/administrador/cadastrohospitais.html';
+    require_once 'html/cadastros/administrador/cadastrohospitais.html';
 
 ?>

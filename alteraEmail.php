@@ -1,5 +1,5 @@
 <?php
 
-    require_once 'cadastros/configuracoes/alteraemail.html';
+    require_once 'html/cadastros/configuracoes/alteraemail.html';
 
 ?>

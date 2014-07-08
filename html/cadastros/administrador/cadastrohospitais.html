@@ -4,15 +4,51 @@
     <script type="text/javascript">
     function validaCampo()
     {
-   if(document.hospitais.nomehosp.value=="")
-    {
-    alert("O Campo nome � obrigat�rio!");
-    return false;
+        if(document.forms.hospitais.nomehosp.value=="")
+        {
+            alert("O Campo nome \351 obrigat\363rio!");
+            return false;
+        }
+        if(!alfanumerico(document.forms.hospitais.nomehosp.value))
+        {
+            alert("O Campo nome possui caracteres inv\341lidos!");
+            return false;
+        }
+        else if(document.forms.hospitais.ddd.value=="")
+        {
+            alert("O Campo DDD \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!validaDDD(document.forms.hospitais.ddd.value))
+        {
+            alert("O Campo DDD possui caracteres inv\341lidos!");
+            return false;
+        }
+        else if(document.forms.hospitais.telefone.value=="")
+        {
+            alert("O Campo Telefone \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!validaTelefone(document.forms.hospitais.telefone.value))
+        {
+            alert("O Campo Telefone possui caracteres inv\341lidos!");
+            return false;
+        }
+        else
+            return true;
     }
-    else
-    return true;
+    function alfanumerico(texto){
+        var Exp = /^[0-9a-z]+$/i;
+        return (Exp.test(texto));
     }
-    
+    function validaDDD(texto){
+        var Exp = /^[\d]{2}$/;
+        return (Exp.test(texto));
+    }
+    function validaTelefone(texto){
+        var Exp = /^(([\d]{8})|([\d]{9}))$/;
+        return (Exp.test(texto));
+    }
     <!-- Fim do JavaScript que validar� os campos obrigat�rios! -->
     </script>
      	 <title> Cadastro Hospitais e Cl�nicas </title>
@@ -30,7 +66,7 @@
       </tr>
       <tr>
           <td align="left">
-    <form id="hospitais" name="hospitais" method="post" onsubmit="return validaCampo(); return false;" >
+    <form id="hospitais" name="hospitais" method="post" onsubmit="return validaCampo()" >
       <table width="625" border="0">
         <tr>
           <td>Nome:</td>

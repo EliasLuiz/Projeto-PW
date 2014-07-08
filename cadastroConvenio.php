@@ -1,5 +1,5 @@
 <?php
 
-    require_once 'cadastros/administrador/cadastroconvenios.html';
+    require_once 'html/cadastros/administrador/cadastroconvenios.html';
 
 ?>

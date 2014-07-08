@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript">
+    function validaCampo()
+    {
+        if(document.forms.convenios.nomeconvenio.value == "")
+        {
+            alert("O Campo Nome \351 obrigatorio!");
+            return false;
+        }
+        else if(document.forms.convenios.responsavel.value == "")
+        {
+            alert("O Campo Respons\341vel \351 obrigatorio!");
+            return false;
+        }
+        else if(!alfabetico(document.forms.convenios.nomeconvenio.value))
+        {
+            alert("O Campo Nome possui caracteres inv\341lidos!");
+            return false;
+        }
+        else if(!alfabetico(document.forms.convenios.responsavel.value))
+        {
+            alert("O Campo Respons\341vel possui caracteres inv\341lidos!");
+            return false;
+        }
+        else
+            return true;
+    }
+    function alfabetico(texto){
+        var Exp = /^[a-z]+$/i;
+        return (Exp.test(texto));
+    }
+    
+    //Fim do JavaScript que validara os campos obrigatorios e caracteres especiais!
+    </script>
+     	 <title> Cadastro Conv&ecirc;nios </title>
+         
+</head>
+<body  topmargin="0" leftmargin="0">
+    <table width="100%" height="100%"><tr><td align="center" valign="middle">
+
+    <table cellpadding="1" cellspacing="1">
+      <tr>
+        <td>
+          <center><h2>Cadastro de Conv&ecirc;nios</h2><br>
+            <hr>
+        </td>
+      </tr>
+      <tr>
+        <td align="left">
+          <form id="convenios" name="convenios" method="post" onsubmit="return validaCampo()">
+            <table width="625" border="0">
+              <tr>
+                <td width="69">Nome do Conv&ecirc;nio:</td>
+                <td width="546"><input name="nomeconvenio" type="text" id="nomeconvenio" size="40" maxlength="40" />
+              </tr>
+              <tr>
+                <td width="69">Respons&aacute;vel Conv&ecirc;nio:</td>
+                <td width="546"><input name="responsavel" type="text" id="responsavel" size="40" maxlength="40" />
+              </tr>
+        
+              <tr>
+                <td colspan="2"><p>
+                  <input name="cadastrar" type="submit" id="cadastrar" value="Concluir meu Cadastro!"/>
+                  <input name="limpar" type="reset" id="limpar" value="Limpar Campos preenchidos!" />
+                </td>
+              </tr>
+            </table>
+          </form>
+        </td>
+      </tr>
+    </table>
+</body>
+</html>

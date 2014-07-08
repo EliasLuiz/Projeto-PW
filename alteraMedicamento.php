@@ -1,5 +1,5 @@
 <?php
 
-    require_once 'cadastros/configuracoes/alteramedicamento.html';
+    require_once 'html/cadastros/configuracoes/alteramedicamento.html';
 
 ?>

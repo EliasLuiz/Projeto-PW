@@ -1,5 +1,5 @@
 <?php
 
-    require_once 'cadastros/configuracoes/alterasenha.html';
+    require_once 'html/cadastros/configuracoes/alterasenha.html';
 
 ?>
