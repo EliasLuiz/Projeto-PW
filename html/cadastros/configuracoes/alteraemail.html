@@ -4,41 +4,21 @@
     <script type="text/javascript">
     function validaCampo()
     {
-        if(document.cadastro.email.value=="")
+        if(document.forms.cadastro.email.value=="")
         {
-            alert("O Campo email � obrigat�rio!");
+            alert("O Campo email \351 obrigat\323rio!");
+            return false;
+        }
+        else if(!valide(document.forms.cadastro.email.value))
+        {
+            alert("O Campo email possui um formato inv\341lido!");
             return false;
         }
         else
             return true;
     }
-    
-    function alfabetico(texto){
-        var Exp = /^[a-z]*$/i;
-        return (Exp.test(texto));
-    }
-    function alfanumerico(texto){
-        var Exp = /^[0-9a-z]+$/i;
-        return (Exp.test(texto));
-    }
     function validaEmail(texto){
-        var Exp = /^[\w]+@[\w]+\.[\w|\.]+$/;
-        return (Exp.test(texto));
-    }
-    function validaDDD(texto){
-        var Exp = /^[\d]{2}$/;
-        return (Exp.test(texto));
-    }
-    function validaTelefone(texto){
-        var Exp = /^(([\d]{8})|([\d]{9}))$/;
-        return (Exp.test(texto));
-    }
-    function validaCPF(texto){
-        var Exp = /^[\d]{11}$/;
-        return (Exp.test(texto));
-    }
-    function validaRG(texto){
-        var Exp = /^([A-Z]{1}|[A-Z]{2})+([\d]{7}|[\d]{8})$/;
+        var Exp = /^[a-z0-9]+@[a-z0-9]+\.[a-z0-9|\.]+$/i;
         return (Exp.test(texto));
     }
     

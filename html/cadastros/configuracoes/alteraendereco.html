@@ -4,30 +4,59 @@
     <script type="text/javascript">
     function validaCampo()
     {
-    if(document.cadastro.rua.value=="")
-    {
-    alert("O Campo rua � obrigat�rio!");
-    return false;
+        if(document.forms.cadastro.rua.value=="")
+        {
+            alert("O Campo rua \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!alfanumerico(document.forms.cadastro.rua.value))
+        {
+            alert("O Campo rua possui caracteres inv\341lidos!");
+            return false;
+        }
+        else if(document.forms.cadastro.bairro.value=="")
+        {
+            alert("O Campo bairro \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!alfanumerico(document.forms.cadastro.bairro.value))
+        {
+            alert("O Campo bairro possui caracteres inv\341lidos!");
+            return false;
+        }
+        else if(document.forms.cadastro.numero.value=="")
+        {
+            alert("O Campo n\372mero \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!numerico(document.forms.cadastro.numero.value))
+        {
+            alert("O Campo n\372mero possui caracteres inv\341lidos!");
+            return false;
+        }
+        else if(document.forms.cadastro.cidade.value=="")
+        {
+            alert("O Campo Cidade \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!alfanumerico(document.forms.cadastro.cidade.value))
+        {
+            alert("O Campo Cidade possui caracteres inv\341lidos!");
+            return false;
+        }
+        else
+            return true;
     }
-    else
-    if(document.cadastro.bairro.value=="")
-    {
-    alert("O Campo bairro � obrigat�rio!");
-    return false;
+    function alfanumerico(texto){
+        var Exp = /^[0-9a-z]+$/i;
+        return (Exp.test(texto));
     }
-    if(document.cadastro.numero.value=="")
-    {
-    alert("O Campo n�mero � obrigat�rio!");
-    return false;
+    function alfabetico(texto){
+        var Exp = /^[a-z]*$/i;
+        return (Exp.test(texto));
     }
-    else
-    if(document.cadastro.cidade.value=="")
-    {
-    alert("O Campo Cidade � obrigat�rio!");
-    return false;
-    }
-    else
-    return true;
+    function numerico(texto){
+        return !(isNaN(texto));
     }
     
     <!-- Fim do JavaScript que validar� os campos obrigat�rios! -->

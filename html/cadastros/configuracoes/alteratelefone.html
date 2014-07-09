@@ -4,13 +4,36 @@
     <script type="text/javascript">
     function validaCampo()
     {
-   if(document.cadastro.telefone.value=="")
-    {
-    alert("O Campo Telefone \351 obrigat\323rio!");
-    return false;
+        if(document.forms.cadastro.ddd.value=="")
+        {
+            alert("O Campo DDD \351 obrigat\323rio!");
+            return false;
+        }
+        else if(document.forms.cadastro.telefone.value=="")
+        {
+            alert("O Campo Telefone \351 obrigat\323rio!");
+            return false;
+        }
+        else if(!validaDDD(document.forms.cadastro.ddd.value))
+        {
+            alert("O Campo DDD possui formato inv\341lido!");
+            return false;
+        }
+        else if(!validaTelefone(document.forms.cadastro.telefone.value))
+        {
+            alert("O Campo Telefone possui formato inv\341lido!");
+            return false;
+        }
+        else
+            return true;
     }
-    else
-    return true;
+    function validaDDD(texto){
+        var Exp = /^[\d]{2}$/;
+        return (Exp.test(texto));
+    }
+    function validaTelefone(texto){
+        var Exp = /^(([\d]{8})|([\d]{9}))$/;
+        return (Exp.test(texto));
     }
     
     <!-- Fim do JavaScript que validar� os campos obrigat�rios! -->

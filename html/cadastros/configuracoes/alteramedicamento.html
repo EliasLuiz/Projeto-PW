@@ -4,13 +4,22 @@
     <script type="text/javascript">
     function validaCampo()
     {
-   if(document.forms.cadastro.nomemedicamentos.value=="")
-    {
-    alert("O Campo Nome Medicamentos \351 obrigat\323rio!");
-    return false;
+        if(document.forms.cadastro.nomemedicamentos.value=="")
+        {
+            alert("O Campo Medicamentos \351 obrigat\323rio!");
+            return false;
+        }
+        else if(!alfanumerico(document.forms.cadastro.nomemedicamentos.value))
+        {
+            alert("O Campo Medicamentos possui caracteres inv\341lidos!");
+            return false;
+        }
+        else
+            return true;
     }
-    else
-    return true;
+    function alfanumerico(texto){
+        var Exp = /^[0-9a-z]+$/i;
+        return (Exp.test(texto));
     }
     
     <!-- Fim do JavaScript que validar� os campos obrigat�rios! -->
@@ -33,7 +42,7 @@
     <form id="cadastro" name="cadastro" method="post" onsubmit="return validaCampo()" >
       <table width="625" border="0">
         <tr>
-          <td>Nome medicamentos:</td>
+          <td>Nome dos medicamentos:</td>
           <td><textarea name="medicamentos" type="text" id="medicamentos" 
                         rows="5" cols="50" />Medicamentos
               </textarea></td>

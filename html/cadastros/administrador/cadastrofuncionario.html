@@ -121,23 +121,23 @@
         return (Exp.test(texto));
     }
     function validaEmail(texto){
-        var Exp = /^[\w]+@[\w]+\.[\w|\.]+$/;
+        var Exp = /^[a-z0-9]+@[a-z0-9]+\.[a-z0-9|\.]+$/;
         return (Exp.test(texto));
     }
     function validaDDD(texto){
-        var Exp = /^[\d]{2}$/;
+        var Exp = /^[0-9]{2}$/;
         return (Exp.test(texto));
     }
     function validaTelefone(texto){
-        var Exp = /^(([\d]{8})|([\d]{9}))$/;
+        var Exp = /^(([0-9]{8})|([0-9]{9}))$/;
         return (Exp.test(texto));
     }
     function validaCPF(texto){
-        var Exp = /^[\d]{11}$/;
+        var Exp = /^[0-9]{11}$/;
         return (Exp.test(texto));
     }
     function validaRG(texto){
-        var Exp = /^([A-Z]{1}|[A-Z]{2})+([\d]{7}|[\d]{8})$/;
+        var Exp = /^([A-Z]{1}|[A-Z]{2})+([\d]{7}|[\d]{8})$/i;
         return (Exp.test(texto));
     }
     <!-- Fim do JavaScript que validar� os campos obrigat�rios! -->
