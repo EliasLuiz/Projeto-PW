@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Description of AlteraEmail
+ * DELETAR
  *
  * @author Daniel gatim
  */

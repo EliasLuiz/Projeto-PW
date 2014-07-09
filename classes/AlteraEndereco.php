@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Description of AlteraEndereco
+ * DELETAR
  *
  * @author Daniel
  */

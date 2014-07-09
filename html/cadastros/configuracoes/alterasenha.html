@@ -4,22 +4,40 @@
     <script type="text/javascript">
     function validaCampo()
     {
-   if(document.cadastro.senha.value=="")
-    {
-    alert("O Campo Senha é obrigatório!");
-    return false;
+        if(document.forms.cadastro.senha.value=="")
+        {
+            alert("Digite uma senha!");
+            return false;
+        }
+        else if(!alfanumerico(document.forms.cadastro.senha.value))
+        {
+            alert("Senha inv\341lida!");
+            return false;
+        }
+        else if(document.forms.cadastro.senha2.value=="")
+        {
+            alert("Digite uma senha!");
+            return false;
+        }
+        else if(!alfanumerico(document.forms.cadastro.senha2.value))
+        {
+            alert("Senha inv\341lida!");
+            return false;
+        }
+        else if(document.forms.cadastro.senha2.value != document.forms.cadastro.senha3.value)
+        {
+            alert("Senhas n\343o conferem!");
+            return false;
+        }
+        else
+            return true;
     }
-    else
-    if(document.cadastro.login.value=="")
-    {
-    alert("O Campo Login é obrigatório!");
-    return false;
-    }
-    else
-    return true;
+    function alfanumerico(texto){
+        var Exp = /^[0-9a-z]+$/i;
+        return (Exp.test(texto));
     }
     
-    <!-- Fim do JavaScript que validará os campos obrigatórios! -->
+    <!-- Fim do JavaScript que validarï¿½ os campos obrigatï¿½rios! -->
     </script>
      	 <title> Cadastro Senha </title>
          
@@ -36,19 +54,19 @@
       </tr>
       <tr>
           <td align="left">
-    <form id="cadastro" name="cadastro" method="post" onsubmit="return validaCampo(); return false;" >
+    <form id="cadastro" name="cadastro" method="post" onsubmit="return validaCampo()" >
       <table width="625" border="0">
         <tr>
-          <td>Login:</td>
-          <td><input name="login" type="text" id="login" maxlength="12" />
-        </tr>
-        <tr>
-          <td>Senha:</td>
+          <td>Senha Atual:</td>
           <td><input name="senha" type="password" id="senha" maxlength="12" />
         </tr>
         <tr>
           <td>Nova Senha:</td>
-          <td><input name="senha" type="password" id="senha" maxlength="12" />
+          <td><input name="senha2" type="password" id="senha2" maxlength="12" />
+        </tr>
+        <tr>
+          <td>Confirmar Senha:</td>
+          <td><input name="senha3" type="password" id="senha3" maxlength="12" />
         </tr>
         
         

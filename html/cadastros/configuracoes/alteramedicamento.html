@@ -4,16 +4,16 @@
     <script type="text/javascript">
     function validaCampo()
     {
-   if(document.cadastro.nomemedicamentos.value=="")
+   if(document.forms.cadastro.nomemedicamentos.value=="")
     {
-    alert("O Campo Nome Medicamentos é obrigatório!");
+    alert("O Campo Nome Medicamentos \351 obrigat\323rio!");
     return false;
     }
     else
     return true;
     }
     
-    <!-- Fim do JavaScript que validará os campos obrigatórios! -->
+    <!-- Fim do JavaScript que validarï¿½ os campos obrigatï¿½rios! -->
     </script>
      	 <title> Cadastro Medicamentos </title>
          
@@ -30,11 +30,12 @@
       </tr>
       <tr>
           <td align="left">
-    <form id="cadastro" name="cadastro" method="post" onsubmit="return validaCampo(); return false;" >
+    <form id="cadastro" name="cadastro" method="post" onsubmit="return validaCampo()" >
       <table width="625" border="0">
         <tr>
           <td>Nome medicamentos:</td>
-          <td><textarea name="nomemedicamentos" type="text" id="nomemedicamentos" rows="5" cols="50" />Medicamentos
+          <td><textarea name="medicamentos" type="text" id="medicamentos" 
+                        rows="5" cols="50" />Medicamentos
               </textarea></td>
         </tr>
         

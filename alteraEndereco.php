@@ -5,6 +5,8 @@
 
     require_once 'html/cadastros/configuracoes/alteraendereco.html';
     
+    //criar classe de interface depois
+    
     if(isset($_POST["rua"])){
         $cdCliente = $_COOKIE["cd"];
         $cliente = new Cliente();
