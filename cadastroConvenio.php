@@ -23,6 +23,8 @@
         
         public function gera(){
             
+            //if(!$this->valida){ ERRO }
+            
             $convenio = new Convenio();
             
             $convenio->setNome($this->nome);

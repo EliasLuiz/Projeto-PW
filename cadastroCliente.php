@@ -56,6 +56,8 @@
         
         public function gera(){
             
+            //if(!$this->valida){ ERRO }
+            
             if($this->usuario == "paciente"){
                 $user = new Cliente();
             }
