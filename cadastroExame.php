@@ -1,6 +1,6 @@
 <?php
 
-    include_once 'TipoExame.php';
+    include_once 'classes/TipoExame.php';
 
     require_once 'html/cadastros/administrador/cadastroexame.html';
 

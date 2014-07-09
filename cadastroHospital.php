@@ -1,6 +1,6 @@
 <?php
 
-    include_once 'Hospital.php';
+    include_once 'classes/Hospital.php';
 
     require_once 'html/cadastros/administrador/cadastrohospitais.html';
 

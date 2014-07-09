@@ -4,35 +4,35 @@
     <script type="text/javascript">
     function validaCampo()
     {
-   if(document.cadastro.rua.value=="")
+    if(document.cadastro.rua.value=="")
     {
-    alert("O Campo rua é obrigatório!");
+    alert("O Campo rua ï¿½ obrigatï¿½rio!");
     return false;
     }
     else
     if(document.cadastro.bairro.value=="")
     {
-    alert("O Campo bairro é obrigatório!");
+    alert("O Campo bairro ï¿½ obrigatï¿½rio!");
     return false;
     }
     if(document.cadastro.numero.value=="")
     {
-    alert("O Campo número é obrigatório!");
+    alert("O Campo nï¿½mero ï¿½ obrigatï¿½rio!");
     return false;
     }
     else
     if(document.cadastro.cidade.value=="")
     {
-    alert("O Campo Cidade é obrigatório!");
+    alert("O Campo Cidade ï¿½ obrigatï¿½rio!");
     return false;
     }
     else
     return true;
     }
     
-    <!-- Fim do JavaScript que validará os campos obrigatórios! -->
+    <!-- Fim do JavaScript que validarï¿½ os campos obrigatï¿½rios! -->
     </script>
-     	 <title> Cadastro Endereço </title>
+    <title> Cadastro Endere&ccedil;o </title>
          
 </head>
 <body  topmargin="0" leftmargin="0">
@@ -41,20 +41,21 @@
     <table cellpadding="1" cellspacing="1"><tr><td>
       <tr>
         <td>
-            <center><h2>Cadastro de Endereço</h2><br>
+            <center><h2>Cadastro de Endere&ccedil;o</h2><br>
             <hr>
         </td>
       </tr>
       <tr>
           <td align="left">
-    <form id="cadastro" name="cadastro" method="post" onsubmit="return validaCampo(); return false;" >
+    <form id="cadastro" name="cadastro" method="post" 
+          onsubmit="return validaCampo();" action="alteraEndereco.php" >
       <table width="625" border="0">
         <tr>
           <td>Rua:</td>
           <td><input name="rua" type="text" id="rua" size="70" maxlength="70" />
         </tr>
         <tr>
-          <td>Número:</td>
+            <td>N&uacute;mero:</td>
           <td><input name="numero" type="text" id="numero" size="8" maxlength="8" />
         </tr>
         <tr>

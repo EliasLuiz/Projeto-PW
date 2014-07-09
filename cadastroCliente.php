@@ -1,8 +1,8 @@
 <?php
 
-    include_once 'Cliente.php';
-    include_once 'Medico.php';   
-    include_once 'Bairro.php';  
+    include_once 'classes/Cliente.php';
+    include_once 'classes/Medico.php';   
+    include_once 'classes/Bairro.php';  
     require_once 'html/cadastros/cadastrocliente/cadastrocliente.html';
     
     if(isset($_POST["usuario"])){

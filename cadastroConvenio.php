@@ -1,6 +1,6 @@
 <?php
 
-    include_once 'Convenio.php';
+    include_once 'classes/Convenio.php';
 
     require_once 'html/cadastros/administrador/cadastroconvenios.html';
 

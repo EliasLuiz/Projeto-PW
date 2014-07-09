@@ -1,6 +1,6 @@
 <?php
 
-    include_once 'Funcionario.php';
+    include_once 'classes/Funcionario.php';
 
     require_once 'html/cadastros/administrador/cadastrofuncionario.html';
 

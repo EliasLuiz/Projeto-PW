@@ -13,8 +13,6 @@
             <li><a href="cadastroFuncionario.php">Cadastro de Funcionario</a></li>
             <li><a href="cadastroHospital.php">Cadastro de Hospital</a></li>
             <li><a href="cadastroCliente.php">Cadastro de Cliente</a></li>
-            <li><a href="cadastroMedico.php">Cadastro de Medico</a></li>
-            <li><a href="cadastroPaciente.php">Cadastro de Paciente</a></li>
             <li><a href="alteraEmail.php">Alteração de Email</a></li>
             <li><a href="alteraEndereco.php">Alteração de Endereço</a></li>
             <li><a href="alteraMedicamento.php">Alteração de Medicamentos</a></li>
