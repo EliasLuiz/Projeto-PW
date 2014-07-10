@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript">
+    function validaCampo()
+    {
+        if(document.forms.hospitais.nomehosp.value=="")
+        {
+            alert("O Campo nome \351 obrigat\363rio!");
+            return false;
+        }
+        if(!alfanumerico(document.forms.hospitais.nomehosp.value))
+        {
+            alert("O Campo nome possui caracteres inv\341lidos!");
+            return false;
+        }
+        else if(document.forms.hospitais.ddd.value=="")
+        {
+            alert("O Campo DDD \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!validaDDD(document.forms.hospitais.ddd.value))
+        {
+            alert("O Campo DDD possui caracteres inv\341lidos!");
+            return false;
+        }
+        else if(document.forms.hospitais.telefone.value=="")
+        {
+            alert("O Campo Telefone \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!validaTelefone(document.forms.hospitais.telefone.value))
+        {
+            alert("O Campo Telefone possui caracteres inv\341lidos!");
+            return false;
+        }
+        else
+            return true;
+    }
+    function alfanumerico(texto){
+        var Exp = /^[0-9a-z]+$/i;
+        return (Exp.test(texto));
+    }
+    function validaDDD(texto){
+        var Exp = /^[\d]{2}$/;
+        return (Exp.test(texto));
+    }
+    function validaTelefone(texto){
+        var Exp = /^(([\d]{8})|([\d]{9}))$/;
+        return (Exp.test(texto));
+    }
+    <!-- Fim do JavaScript que validar� os campos obrigat�rios! -->
+    </script>
+     	 <title> Cadastro Hospitais e Cl�nicas </title>
+         
+</head>
+<body  topmargin="0" leftmargin="0">
+    <table width="100%" height="100%"><tr><td align="center" valign="middle">
+
+    <table cellpadding="1" cellspacing="1"><tr><td>
+      <tr>
+        <td>
+            <center><h2>Cadastro de Hospitais e Cl&iacute;nicas</h2><br>
+            <hr>
+        </td>
+      </tr>
+      <tr>
+          <td align="left">
+    <form id="hospitais" name="hospitais" method="post" 
+          onsubmit="return validaCampo()" action="cadastroHospital.php" >
+      <table width="625" border="0">
+        <tr>
+          <td>Nome:</td>
+          <td><input name="nomehosp" type="text" id="nomehosp" size="70" maxlength="70" />
+        </tr>
+        <tr>
+          <td>DDD:</td>
+          <td><input name="ddd" type="text" id="ddd" size="4" maxlength="2" />
+          Telefone:
+            <input name="telefone" type="text" id="telefone" maxlength="9" />
+            <span>Apenas n&uacute;meros</span> </td>
+        </tr>
+        <tr>
+          <td colspan="2"><p>
+            <input name="cadastrar" type="submit" id="cadastrar" value="Concluir meu Cadastro!"/>
+           
+     
+              <input name="limpar" type="reset" id="limpar" value="Limpar Campos preenchidos!" />
+             
+     
+       
+          <p>  </p></td>
+        </tr>
+          
+      </td></tr></table>
+        
+        </td></tr></table>
+    </form>
+    </body>
+</html>

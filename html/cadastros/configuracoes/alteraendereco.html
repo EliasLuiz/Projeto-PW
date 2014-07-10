@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript">
+    function validaCampo()
+    {
+        if(document.forms.cadastro.rua.value=="")
+        {
+            alert("O Campo rua \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!alfanumerico(document.forms.cadastro.rua.value))
+        {
+            alert("O Campo rua possui caracteres inv\341lidos!");
+            return false;
+        }
+        else if(document.forms.cadastro.bairro.value=="")
+        {
+            alert("O Campo bairro \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!alfanumerico(document.forms.cadastro.bairro.value))
+        {
+            alert("O Campo bairro possui caracteres inv\341lidos!");
+            return false;
+        }
+        else if(document.forms.cadastro.numero.value=="")
+        {
+            alert("O Campo n\372mero \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!numerico(document.forms.cadastro.numero.value))
+        {
+            alert("O Campo n\372mero possui caracteres inv\341lidos!");
+            return false;
+        }
+        else if(document.forms.cadastro.cidade.value=="")
+        {
+            alert("O Campo Cidade \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!alfanumerico(document.forms.cadastro.cidade.value))
+        {
+            alert("O Campo Cidade possui caracteres inv\341lidos!");
+            return false;
+        }
+        else
+            return true;
+    }
+    function alfanumerico(texto){
+        var Exp = /^[0-9a-z]+$/i;
+        return (Exp.test(texto));
+    }
+    function alfabetico(texto){
+        var Exp = /^[a-z]*$/i;
+        return (Exp.test(texto));
+    }
+    function numerico(texto){
+        return !(isNaN(texto));
+    }
+    
+    <!-- Fim do JavaScript que validar� os campos obrigat�rios! -->
+    </script>
+    <title> Cadastro Endere&ccedil;o </title>
+         
+</head>
+<body  topmargin="0" leftmargin="0">
+    <table width="100%" height="100%"><tr><td align="center" valign="middle">
+
+    <table cellpadding="1" cellspacing="1"><tr><td>
+      <tr>
+        <td>
+            <center><h2>Cadastro de Endere&ccedil;o</h2><br>
+            <hr>
+        </td>
+      </tr>
+      <tr>
+          <td align="left">
+    <form id="cadastro" name="cadastro" method="post" 
+          onsubmit="return validaCampo();" action="alteraEndereco.php" >
+      <table width="625" border="0">
+        <tr>
+          <td>Rua:</td>
+          <td><input name="rua" type="text" id="rua" size="70" maxlength="70" />
+        </tr>
+        <tr>
+            <td>N&uacute;mero:</td>
+          <td><input name="numero" type="text" id="numero" size="8" maxlength="8" />
+        </tr>
+        <tr>
+          <td>Complemento:</td>
+          <td><input name="complemento" type="text" id="complemento" size="20" maxlength="20" />
+        </tr>
+        <tr>
+          <td>Bairro:</td>
+          <td><input name="bairro" type="text" id="bairro" size="50" maxlength="50" />
+        </tr>
+        <tr>
+          <td>Cidade:</td>
+          <td><input name="cidade" type="text" id="cidade" maxlength="20" />
+        </tr>
+        <tr>
+          <td>Estado:</td>
+          <td><select name="estado" id="estado">
+            <option>Selecione...</option>
+            <option value="AC">AC</option>
+            <option value="AL">AL</option>
+            <option value="AP">AP</option>
+            <option value="AM">AM</option>
+            <option value="BA">BA</option>
+            <option value="CE">CE</option>
+            <option value="ES">ES</option>
+            <option value="DF">DF</option>
+            <option value="MA">MA</option>
+            <option value="MT">MT</option>
+            <option value="MS">MS</option>
+            <option value="MG">MG</option>
+            <option value="PA">PA</option>
+            <option value="PB">PB</option>
+            <option value="PR">PR</option>
+            <option value="PE">PE</option>
+            <option value="PI">PI</option>
+            <option value="RJ">RJ</option>
+            <option value="RN">RN</option>
+            <option value="RS">RS</option>
+            <option value="RO">RO</option>
+            <option value="RR">RR</option>
+            <option value="SC">SC</option>
+            <option value="SP">SP</option>
+            <option value="SE">SE</option>
+            <option value="TO">TO</option>
+              </select>
+        </tr>
+        
+        
+        <tr>
+          <td colspan="2"><p>
+            <input name="cadastrar" type="submit" id="cadastrar" value="Concluir meu Cadastro!"/>
+           
+     
+              <input name="limpar" type="reset" id="limpar" value="Limpar Campos preenchidos!" />
+             
+     
+       
+          <p>  </p></td>
+        </tr>
+          </td></tr></table>
+        
+        </td></tr></table>
+    </form>
+    </body>
+</html>
+

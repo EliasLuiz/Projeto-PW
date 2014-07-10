@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript">
+    function validaCampo()
+    {
+        if(document.forms.cadastro.email.value=="")
+        {
+            alert("O Campo email \351 obrigat\323rio!");
+            return false;
+        }
+        else if(!valide(document.forms.cadastro.email.value))
+        {
+            alert("O Campo email possui um formato inv\341lido!");
+            return false;
+        }
+        else
+            return true;
+    }
+    function validaEmail(texto){
+        var Exp = /^[a-z0-9]+@[a-z0-9]+\.[a-z0-9|\.]+$/i;
+        return (Exp.test(texto));
+    }
+    
+    <!-- Fim do JavaScript que validar� os campos obrigat�rios! -->
+    </script>
+     	 <title> Cadastro Email </title>
+
+</head>
+<body>
+    <table width="100%" height="100%"><tr><td align="center" valign="middle">
+
+    <table cellpadding="1" cellspacing="1"><tr><td>
+      <tr>
+        <td>
+            <center><h2>Cadastro de Email</h2><br>
+            <hr>
+        </td>
+      </tr>
+      <tr>
+          <td align="left">
+    <form id="cadastro" name="cadastro" method="post" 
+          onsubmit="return validaCampo();" action="alteraEmail.php">
+      <table width="625" border="0">
+        <tr>
+          <td>Email:</td>
+          <td><input name="email" type="text" id="email" size="70" maxlength="60" />
+        </tr>
+        
+        
+        <tr>
+          <td colspan="2"><p>
+            <input name="cadastrar" type="submit" id="cadastrar" value="Concluir meu Cadastro!"/>
+           
+     
+              <input name="limpar" type="reset" id="limpar" value="Limpar Campos preenchidos!" />
+             
+     
+       
+          <p>  </p></td>
+        </tr>
+          </td></tr></table>
+        
+        </td></tr></table>
+    </form>
+    </body>
+</html>

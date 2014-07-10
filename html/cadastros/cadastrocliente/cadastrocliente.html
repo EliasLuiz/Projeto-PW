@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="../../../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+    /* -------- BEM VINDO À BUGOLÂNDIA -------
+    $(document).ready(function(){
+            $("#divmedico").hide();
+            $("#divcliente").show();
+    });
+    $("#paciente").click(function(){
+        $(".paciente").show();
+        $(".medico").show();
+    });
+    $("#medico").click(function(){
+        $(".medico").show();
+        $(".paciente").show();
+    });
+       -------- VOLTE SEMPRE ------- */
+    function validaCampo()
+    {
+        if(document.forms.cadastro.nome.value=="")
+        {
+            alert("O Campo nome \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!alfabetico(document.forms.cadastro.nome.value))
+        {
+            alert("O Campo nome possui caracteres inv\341lidos!");
+            return false;
+        }
+        else if(document.forms.cadastro.email.value=="")
+        {
+            alert("O Campo email \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!validaEmail(document.forms.cadastro.email.value))
+        {
+            alert("O Campo email possui formato inv\341lidos!");
+            return false;
+        }
+        else if(document.forms.cadastro.login.value=="")
+        {
+            alert("O Campo Login \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!alfanumerico(document.forms.cadastro.login.value))
+        {
+            alert("O Campo Login possui caracteres inv\341lidos!");
+            return false;
+        }
+        else if(document.forms.cadastro.senha.value=="")
+        {
+            alert("Digite uma senha!");
+            return false;
+        }
+        else if(!alfanumerico(document.forms.cadastro.senha.value))
+        {
+            alert("Senha inv\341lida");
+            return false;
+        }
+        else if(document.forms.cadastro.senha.value!=document.forms.cadastro.senha2.value)
+        {
+            alert("Senhas n\343o conferem!");
+            return false;
+        }
+        else if(document.forms.cadastro.ddd.value=="")
+        {
+            alert("O Campo DDD \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!validaDDD(document.forms.cadastro.ddd.value))
+        {
+            alert("O Campo DDD possui caracteres inv\341lidos!");
+            return false;
+        }
+        else if(document.forms.cadastro.telefone.value=="")
+        {
+            alert("O Campo Telefone \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!validaTelefone(document.forms.cadastro.telefone.value))
+        {
+            alert("O Campo Telefone possui caracteres inv\341lidos!");
+            return false;
+        }
+        else if(document.forms.cadastro.CPF.value=="")
+        {
+            alert("O Campo CPF \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!validaCPF(document.forms.cadastro.CPF.value))
+        {
+            alert("O Campo CPF possui caracteres inv\341lidos!");
+            return false;
+        }
+        else if(document.forms.cadastro.RG.value=="")
+        {
+            alert("O Campo RG \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!validaRG(document.forms.cadastro.RG.value))
+        {
+            alert("O Campo RG possui caracteres inv\341lidos!");
+            return false;
+        }
+        else
+            return true;
+    }
+    function alfanumerico(texto){
+        var Exp = /^[0-9a-z]+$/i;
+        return (Exp.test(texto));
+    }
+    function alfabetico(texto){
+        var Exp = /^[a-z]+$/i;
+        return (Exp.test(texto));
+    }
+    function validaEmail(texto){
+        var Exp = /^[\w]+@[\w]+\.[\w|\.]+$/;
+        return (Exp.test(texto));
+    }
+    function validaDDD(texto){
+        var Exp = /^[\d]{2}$/;
+        return (Exp.test(texto));
+    }
+    function validaTelefone(texto){
+        var Exp = /^(([\d]{8})|([\d]{9}))$/;
+        return (Exp.test(texto));
+    }
+    function validaCPF(texto){
+        var Exp = /^[\d]{11}$/;
+        return (Exp.test(texto));
+    }
+    function validaRG(texto){
+        var Exp = /^([A-Z]{1}|[A-Z]{2})+([\d]{7}|[\d]{8})$/;
+        return (Exp.test(texto));
+    }
+    //Fim do JavaScript que validar� os campos obrigat�rios!
+    </script>
+     	 <title> Cadastro de Cliente </title>
+         
+</head>
+<body  topmargin="0" leftmargin="0">
+    <table width="100%" height="100%"><tr><td align="center" valign="middle">
+
+    <table cellpadding="1" cellspacing="1"><tr><td>
+      <tr>
+        <td>
+            <center><h2>Cadastro de Cliente</h2><br>
+            <hr>
+        </td>
+      </tr>
+      <tr>
+          <td align="left">
+              <form id="cadastro" name="cadastro" method="post" 
+                    onsubmit="return validaCampo()" action="cadastroCliente.php" >
+      <table width="625" border="0">
+        <tr>
+          <td width="69">Nome:</td>
+          <td width="546"><input name="nome" type="text" id="nome" size="70" maxlength="70" />
+        </tr>
+        <tr>
+          <td>Sexo:</td>
+          <td><input name="sexo" type="radio" value="Masculino" checked="checked" />
+            Masculino
+            <input name="sexo" type="radio" value="Feminino" />
+            Feminino
+        </tr>
+        <tr>
+          <td>DDD:</td>
+          <td><input name="ddd" type="text" id="ddd" size="4" maxlength="2" />
+          Telefone:
+            <input name="telefone" type="text" id="telefone" maxlength="9"/>
+            <span>Apenas n&uacute;meros</span> </td>
+        </tr>
+        <tr>
+          <td width="69">CPF:</td>
+          <td width="546"><input name="CPF" type="text" id="CPF" size="11" maxlength="11" />
+              <span>Apenas n&uacute;meros</span> </td>
+        </tr>
+        <tr>
+          <td width="69">RG:</td>
+          <td width="546"><input name="RG" type="text" id="RG" size="15" maxlength="15" />
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td><input name="email" type="text" id="email" size="70" maxlength="60" />
+        </tr>
+        
+        <tr>
+          <td>Login:</td>
+          <td><input name="login" type="text" id="login" maxlength="12" />
+        </tr>
+        <tr>
+          <td>Senha:</td>
+          <td><input name="senha" type="password" id="senha" maxlength="12" />
+        </tr>
+        <tr>
+          <td>Confirmar Senha:</td>
+          <td><input name="senha2" type="password" id="senha2" maxlength="12" />
+        </tr>
+        <tr>
+            <td>Usu&aacute;rio:</td>
+          <td>
+            <input id="paciente" name="usuario" type="radio" value="Paciente"
+                   checked="checked" onclick="medicoPaciente()"/>
+            Paciente
+            <input id="medico" name="usuario" type="radio" value="Medico onclick="medicoPaciente()" />
+            M&eacute;dico
+        </tr>
+        <div class="divmedico">
+            <tr>
+              <td width="69">CRM:</td>
+              <td width="546"><input name="crm" type="text" id="crm" size="20" maxlength="20" />
+            </tr>
+        </div>
+        <div class="divpaciente">
+            <tr>
+              <td>Rua:</td>
+              <td><input name="rua" type="text" id="rua" size="70" maxlength="70" />
+            </tr>
+            <tr>
+              <td>N&uacute;mero:</td>
+              <td><input name="numero" type="text" id="numero" size="8" maxlength="8" />
+            </tr>
+            <tr>
+              <td>Complemento:</td>
+              <td><input name="complemento" type="text" id="complemento" size="20" maxlength="20" />
+            </tr>
+            <tr>
+              <td>Bairro:</td>
+              <td><input name="bairro" type="text" id="bairro" size="50" maxlength="50" />
+            </tr>
+            <tr>
+              <td>Cidade:</td>
+              <td><input name="cidade" type="text" id="cidade" maxlength="20" />
+            </tr>
+            <tr>
+              <td>Estado:</td>
+              <td><select name="estado" id="estado">
+                <option>Selecione...</option>
+                <option value="AC">AC</option>
+                <option value="AL">AL</option>
+                <option value="AP">AP</option>
+                <option value="AM">AM</option>
+                <option value="BA">BA</option>
+                <option value="CE">CE</option>
+                <option value="ES">ES</option>
+                <option value="DF">DF</option>
+                <option value="MA">MA</option>
+                <option value="MT">MT</option>
+                <option value="MS">MS</option>
+                <option value="MG">MG</option>
+                <option value="PA">PA</option>
+                <option value="PB">PB</option>
+                <option value="PR">PR</option>
+                <option value="PE">PE</option>
+                <option value="PI">PI</option>
+                <option value="RJ">RJ</option>
+                <option value="RN">RN</option>
+                <option value="RS">RS</option>
+                <option value="RO">RO</option>
+                <option value="RR">RR</option>
+                <option value="SC">SC</option>
+                <option value="SP">SP</option>
+                <option value="SE">SE</option>
+                <option value="TO">TO</option>
+                  </select>
+            </tr>
+            <tr>
+              <td>Faz uso de medicamento controlado?</td>
+              <td><input name="medicamento" type="radio" value="medicamento" checked="checked" />
+                sim
+                <input name="medicamento" type="radio" value="medicamento" />
+                n&atilde;o
+            </tr>
+            <tr>
+              <td>Nome medicamentos:</td>
+              <td><textarea name="nomemedicamentos" type="text" id="nomemedicamentos" rows="5" cols="50" />Medicamentos
+                  </textarea></td>
+            </tr>
+        </div>
+        <tr>
+          <td colspan="2"><p>
+            <input name="cadastrar" type="submit" id="cadastrar" value="Concluir meu Cadastro!"/>
+           
+     
+              <input name="limpar" type="reset" id="limpar" value="Limpar Campos preenchidos!" />
+       
+          <p>  </p></td>
+        </tr>
+      </td></tr></table>
+        
+        </td></tr></table>
+    </form>
+    </body>
+</html>

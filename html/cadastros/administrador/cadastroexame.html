@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript">
+    function validaCampo()
+    {
+        if(document.forms.exames.nomeexame.value=="")
+        {
+            alert("O Campo Nome \351 obrigat\363rio!");
+            return false;
+        }
+        else if(document.forms.exames.requisitos.value=="")
+        {
+            alert("O Campo Requisitos \351 obrigat\363rio!");
+            return false;
+        }
+        else if(document.forms.exames.preco.value=="")
+        {
+            alert("O Campo Pre\347o \351 obrigat\363rio!");
+            return false;
+        }
+        else if(!alfanumerico(document.forms.exames.nomeexame.value))
+        {
+            alert("O Campo Nome possui caracteres inv\341lidos!");
+            return false;
+        }
+        else if(!alfanumerico(document.forms.exames.requisitos.value))
+        {
+            alert("O Campo Requisitos possui caracteres inv\341lidos!");
+            return false;
+        }
+        else if(!alfanumerico2(document.forms.exames.informacoes.value))
+        {
+            alert("O Campo Informa\347\365es possui caracteres inv\341lidos!");
+            return false;
+        }
+        else if(!numerico(document.forms.exames.preco.value))
+        {
+            alert("O Campo Preco possui caracteres inv\341lidos!");
+            return false;
+        }
+        else
+            return true;
+    }
+    function alfanumerico(texto){
+        var Exp = /^[0-9a-z]+$/i;
+        return (Exp.test(texto));
+    }
+    function alfanumerico2(texto){
+        var Exp = /^[0-9a-z]*$/i;
+        return (Exp.test(texto));
+    }
+    function numerico(texto){
+        return !(isNaN(texto));
+    }
+    
+    //Fim do JavaScript que validar� os campos obrigat�rios!
+    </script>
+     	 <title> Cadastro Exames </title>
+         
+</head>
+<body  topmargin="0" leftmargin="0">
+    <table width="100%" height="100%"><tr><td align="center" valign="middle">
+
+    <table cellpadding="1" cellspacing="1"><tr><td>
+      <tr>
+        <td>
+            <center><h2>Cadastro de Exames</h2><br>
+            <hr>
+        </td>
+      </tr>
+      <tr>
+          <td align="left">
+    <form id="exames" name="exames" method="post" 
+          onsubmit="return validaCampo()" action="cadastroExame.php" >
+      <table width="625" border="0">
+        <tr>
+          <td width="69">Nome do Exame:</td>
+          <td width="546"><input name="nomeexame" type="text" id="nomeexame" size="40" maxlength="40" />
+        </tr>
+        <tr>
+          <td>Requisitos:</td>
+          <td><textarea name="requisitos" type="text" id="requisitos" rows="5" cols="50" />Requisitos
+              </textarea></td>
+        </tr>
+        <tr>
+            <td>Informa&ccedil;&otilde;es:</td>
+          <td><textarea name="informacoes" type="text" id="informacoes" 
+                        rows="5" cols="50" /> Informa&ccedil;&otilde;es </textarea></td>
+        </tr>
+        <tr>
+            <td width="69">Pre&ccedil;o(R$):</td>
+          <td width="546"><input name="preco" type="text" id="preco" size="5" maxlength="5" />
+        </tr>
+         </td></tr></table>
+        <input name="domicilio" value='domicilio' type='checkbox'>Pode ser realizado em domic&iacute;lio<br>
+          <p>
+            <input name="cadastrar" type="submit" id="cadastrar" value="Concluir meu Cadastro!" />
+           
+     
+              <input name="limpar" type="reset" id="limpar" value="Limpar Campos preenchidos!" />
+            
+       
+          <p>  </p></td>
+        
+        </table>
+                
+    </form>
+    </body>
+</html>
